@@ -1,0 +1,9 @@
+# Student-generated debug and check outputs
+**/build/puzzle-debug/
+**/build/check-*
+**/*.save
+**/*.log
+**/core
+**/core.*
+.DS_Store
+Thumbs.db

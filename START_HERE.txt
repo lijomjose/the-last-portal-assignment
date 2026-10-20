@@ -1,0 +1,102 @@
+THE LAST PORTAL - COMPLETE STUDENT ASSIGNMENT PACK v1.5.1
+
+1. EXTRACT EVERYTHING
+Use Extract All / your archive manager. Put the entire extracted folder in
+a writable location such as Documents. Do not run or edit inside the ZIP.
+
+2. READ THE HANDOUT
+Assignment_Handout.pdf contains the full assignment, the supplied design,
+all eight repair contracts, gameplay, build instructions and submission.
+Assignment_Handout.docx is the same handout in editable Word format.
+The new section Using your assignment pack explains this package.
+
+3. PLAY THE FINISHED REFERENCE
+Open Reference. On Windows x64, double-click PLAY_WINDOWS.bat.
+In PowerShell inside Reference: .\PLAY_WINDOWS.bat
+On Linux x86-64, in a terminal inside Reference: sh play-linux.sh
+No compiler is needed for the reference. Its source code is not included.
+The supplied launchers open the existing binary without rebuilding it.
+Play the three rooms to understand the controls and intended behavior.
+Keep Reference/bin and Reference/assets together. Graphics/OpenGL and
+normal operating-system runtime libraries are still required.
+
+4. REPAIR YOUR PUZZLE PROJECT
+Open Puzzle. All project-relative paths in the handout begin here.
+Edit only these four files:
+  Puzzle/puzzle/student/stack.c
+  Puzzle/puzzle/student/queue.c
+  Puzzle/puzzle/student/attack_list.c
+  Puzzle/puzzle/student/diagnostics.c
+
+You can inspect the initial repair before editing:
+  Windows: open Puzzle/build/puzzle/last_portal.exe
+  Linux, in Puzzle:
+    chmod +x build/puzzle/last_portal
+    ./build/puzzle/last_portal
+
+5. SAVE, CLOSE THE PUZZLE GAME, REBUILD AND PLAY
+Windows PowerShell, opened INSIDE Puzzle:
+  gcc --version
+  gcc -dumpmachine
+  .\run-windows.bat puzzle
+You need a 64-bit MinGW-w64 GCC compiler available on PATH.
+In Command Prompt inside Puzzle, use: run-windows.bat puzzle
+
+Linux terminal, opened INSIDE Puzzle:
+  cc --version
+  chmod +x build-linux.sh run-linux.sh check-linux.sh
+  ./run-linux.sh puzzle
+You need a C99 compiler and the X11/OpenGL development/runtime libraries
+used by the bundled raylib library. The game requires a graphical desktop.
+
+The run script compiles first and launches only if compilation succeeds.
+Fix the first compiler error, save and repeat. Saving C source alone does
+not change an old executable. Rebuild after EVERY source change.
+The completed Reference never uses your edited Puzzle source files.
+
+BUILD AND RUN FOR DEBUGGING
+For debug symbols and saved compiler/runtime messages, use these launchers
+in the OUTER extracted pack folder:
+  Windows: double-click DEBUG_PUZZLE_WINDOWS.bat
+  Linux terminal: sh debug-puzzle-linux.sh
+They automatically switch into Puzzle, build your current student code,
+then run it. A failed build never launches an old executable.
+Logs are in Puzzle/build/puzzle-debug/build.log and run.log. Runtime output
+is printed after the game closes. Windows waits for a key before closing.
+Optional GDB and Linux sanitizer modes are explained in Puzzle/DEBUGGING.md
+and the handout section Building and running for debugging.
+The compiler is still required; these launchers do not install tools.
+
+6. CHECK AND SUBMIT YOUR OWN REPAIRS
+Optional checks, from inside Puzzle:
+  Windows PowerShell: .\check-windows.bat
+  Linux: ./check-linux.sh
+Failure is expected until the required repair works. Follow the full
+boundary-case contracts in the handout, not just one passing example.
+Complete your own Puzzle game and submit the four student C files,
+README.txt and final Puzzle screenshot in the layout specified there.
+A Reference playthrough or its screenshot does not complete the assignment.
+
+KEEP YOUR WORK SEPARATE
+Reference/completed.save and Puzzle/puzzle.save store separate room
+checkpoints. They do not store repairs. To start an edition fresh, close
+it and delete only its save file, if present. Do not replace the Puzzle
+binary with the Reference binary or submit Reference instead of your work.
+Keep an untouched copy of this ZIP as a backup of the starting project.
+
+WHAT IS INCLUDED
+Puzzle: unfinished project source, scripts, resources, libraries and
+        starting Windows/Linux executables; no completed implementations.
+Reference: completed Windows/Linux executables and resources, with
+           launchers, instructions and licenses; no completed game source.
+Handout: full assignment in PDF and Word.
+SHA256SUMS.txt: checksums of the supplied files before you edit or play.
+No compiler installation is bundled. No Python, CMake or game editor is
+needed to play or perform the ordinary student build.
+
+Do the diagnosis, implementation and testing yourself. Do not ask an LLM
+to generate the missing implementations or directly solve the controllers.
+Use the reference to observe behavior and build your own understanding.
+
+Platform validation: Linux was tested locally; the Windows builds are
+cross-compiled and have not been run on Windows in this environment.
