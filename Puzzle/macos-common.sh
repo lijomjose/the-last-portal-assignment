@@ -99,7 +99,7 @@ portal_macos_build()
     else
         set -- "$@" $(pkg-config --libs raylib) -Wl,-rpath,"$portal_raylib_libdir"
     fi
-    "$portal_cc" "$@" -framework Cocoa -framework IOKit -framework OpenGL \
+    "$portal_cc" "$@" -framework Cocoa -framework IOKit -framework OpenGL -framework QuartzCore \
         -framework CoreVideo -framework CoreAudio -framework AudioToolbox \
         -lm -o "$portal_binary" >>"$portal_build_log" 2>&1
     portal_result=$?
