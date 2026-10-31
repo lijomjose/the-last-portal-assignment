@@ -2,6 +2,7 @@
 # Build only the student's Puzzle edition, with source-level debug information.
 set -u
 cd "$(dirname "$0")" || exit 1
+if [ "$(uname -s)" = Darwin ]; then exec sh ./debug-macos.sh "$@"; fi
 mode=${1:---run}
 case "$mode" in
   --run|--build-only|--gdb|--sanitize) ;;

@@ -1,5 +1,19 @@
 # Bundled dependencies
 
+## macOS compatibility add-on
+
+The Mac add-on includes only the header, universal static library (x86_64 and
+arm64), and license from this official upstream archive:
+
+https://github.com/raysan5/raylib/releases/download/6.2/raylib-6.2_macos.tar.gz
+
+Locally computed archive SHA-256:
+`100437734a44d56ed9d2a1c4b249dbfc6d6cc3477a45e306f9f56fe5f1e2b4ef`.
+
+This records the archive retrieved for the add-on, rather than claiming an
+independently supplied upstream checksum. Mac builds use native Apple frameworks;
+the bundled Linux/Windows libraries are not reused on macOS.
+
 raylib 6.2 is pinned to the official release:
 https://github.com/raysan5/raylib/releases/tag/6.2
 

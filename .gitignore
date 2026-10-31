@@ -1,5 +1,7 @@
 # Student-generated debug and check outputs
 **/build/puzzle-debug/
+**/build/macos-puzzle/
+**/build/macos-puzzle-debug/
 **/build/check-*
 **/*.save
 **/*.log

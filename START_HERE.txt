@@ -1,5 +1,10 @@
 THE LAST PORTAL - COMPLETE STUDENT ASSIGNMENT PACK v1.5.1
 
+MAC USERS: read MACOS_README.md. The Mac add-on provides native Intel/Apple
+Silicon builds with a bundled Mac library. Install Apple Command Line Tools
+with xcode-select --install, then run sh debug-puzzle-macos.sh from this folder.
+Do not run the Linux executable or try to fix its X11 link flags on a Mac.
+
 1. EXTRACT EVERYTHING
 Use Extract All / your archive manager. Put the entire extracted folder in
 a writable location such as Documents. Do not run or edit inside the ZIP.

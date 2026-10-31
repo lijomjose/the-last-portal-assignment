@@ -6,6 +6,11 @@ A Data Structures assignment in C: repair a small game and help Caitlyn find her
 
 Extract the entire ZIP, then open **START_HERE.txt**. You do not need a GitHub account or Git installed to download it.
 
+**Mac users:** see [the macOS instructions](MACOS_README.md) and download the
+**Mac add-on** from the [release page](https://github.com/lijomjose/the-last-portal-assignment/releases/tag/v1.5.1).
+It adds native Intel/Apple Silicon builds and a bundled Mac library, without
+replacing your four student C files. X11 and Homebrew are not required.
+
 ## What you will do
 
 The supplied game has six missing data-structure functions and two faulty controller routines. Your repairs restore undo, guide a courier through a remembered route, and help Caitlyn counter an alien blocking the portal home. The engine, graphics, stories and resources are supplied. Your job is to understand the failure, implement the repair, rebuild, and use the restored mechanic.
@@ -41,6 +46,8 @@ From the **outer extracted pack folder**:
 
 - **Windows:** double-click `DEBUG_PUZZLE_WINDOWS.bat`.
 - **Linux:** open a terminal there and run `sh debug-puzzle-linux.sh`.
+- **macOS:** after adding the Mac files and installing Apple's Command Line Tools,
+  run `sh debug-puzzle-macos.sh`. See [the Mac guide](MACOS_README.md).
 
 These launchers build your current Puzzle source with debug information, then run it. Compiler and runtime logs are saved under `Puzzle/build/puzzle-debug/`. A failed build never launches an old executable.
 
@@ -60,4 +67,8 @@ Follow the handout for the required source files, brief explanation and final sc
 
 The packaged Linux reference passed a full playthrough. The Linux debug launcher was checked for compilation, source line information, paths containing spaces, failure handling and runtime logging. Windows executables are cross-compiled; the Windows builds and launchers have not been run on Windows in the authoring environment.
 
-The game reuses the instructor's generated Caitlyn course illustrations. raylib and DejaVu license notices are retained in the relevant folders. `SHA256SUMS.txt` lists the original assignment-pack contents before editing or playing; the release also has a checksum for the complete ZIP.
+The Mac add-on bundles the official universal Mac library and uses Apple's
+compiler and native frameworks. A native Mac runtime check has not been performed
+here; see [the Mac guide](MACOS_README.md) for setup and troubleshooting.
+
+The game reuses the instructor's generated Caitlyn course illustrations. raylib and DejaVu license notices are retained in the relevant folders. `SHA256SUMS.txt` lists repository files before editing or playing; each release ZIP has its own checksum. The Mac add-on also includes a separate file manifest.
