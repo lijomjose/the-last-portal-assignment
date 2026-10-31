@@ -15,6 +15,11 @@ portal_macos_compiler()
         printf 'Compiler not found: %s\n' "$portal_cc" >&2
         return 1
     fi
+    portal_macos_sdk=$(xcrun --sdk macosx --show-sdk-path) || return 1
+    if [ ! -d "$portal_macos_sdk" ]; then
+        printf 'The macOS SDK is missing. Finish or repair the Apple Command Line Tools installation.\n' >&2
+        return 1
+    fi
 }
 
 portal_macos_dependencies()
@@ -69,7 +74,7 @@ portal_macos_build()
     portal_binary=$portal_build_dir/last_portal
     printf 'Building native macOS Puzzle (%s / %s)...\n' "$(uname -m)" "$portal_mode"
     {
-        printf 'Compiler: %s\nArchitecture: %s\n' "$portal_cc" "$(uname -m)"
+        printf 'Compiler: %s\nArchitecture: %s\nSDK: %s\n' "$portal_cc" "$(uname -m)" "$portal_macos_sdk"
         if [ "$portal_macos_bundled" = true ]; then
             printf 'raylib: bundled 6.2 universal macOS static library\n'
         else
@@ -89,7 +94,7 @@ portal_macos_build()
         # Mac installation. Never use the bundled Linux header or library.
         set -- "$@" $(pkg-config --cflags raylib)
     fi
-    set -- -std=c99 -Wall -Wextra -Wpedantic -Werror "$@" \
+    set -- -std=c99 -Wall -Wextra -Wpedantic -Werror -isysroot "$portal_macos_sdk" "$@" \
         -DPORTAL_PUZZLE=1 -Iinclude \
         src/main.c src/view.c src/game.c src/repair.c \
         puzzle/student/stack.c puzzle/student/queue.c \
