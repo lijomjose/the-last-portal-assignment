@@ -22,7 +22,7 @@ portal_macos_dependencies()
     portal_macos_compiler || return $?
     portal_macos_bundled=false
     if [ -f vendor/raylib/macos/include/raylib.h ] && [ -f vendor/raylib/macos/lib/libraylib.a ]; then
-        if ! xcrun lipo -verify_arch "$(uname -m)" vendor/raylib/macos/lib/libraylib.a; then
+        if ! xcrun lipo vendor/raylib/macos/lib/libraylib.a -verify_arch "$(uname -m)"; then
             printf 'The bundled raylib library does not support this Mac architecture. Re-extract the complete Mac add-on.\n' >&2
             return 1
         fi
