@@ -12,13 +12,22 @@ Apple Silicon and Intel builds without Homebrew or X11.
 
 Keep your existing extracted assignment folder and your edited files. Download
 the Mac add-on from the [release page](https://github.com/lijomjose/the-last-portal-assignment/releases/tag/v1.5.1).
-Open the add-on and copy its contents into the **outer assignment folder** that
-already contains `Puzzle` and `Reference`. Merge the folders, and replace only
-the matching launcher/documentation files if prompted.
+Extract the add-on, then open Terminal in its extracted folder. Type
+`sh install-macos-addon.sh ` followed by a space, drag your **existing outer
+assignment folder** from Finder into Terminal, and press Return. For example:
 
-**Do not replace the whole Puzzle folder.** Merge the files into it. The add-on
-contains no `puzzle/student/*.c` files, so it supplies no replacement implementations.
-Keep a backup of your four edited files before moving folders in Finder.
+```sh
+sh install-macos-addon.sh "/Users/your-name/Documents/Your Assignment Folder"
+```
+
+Use your actual existing folder in place of that example. It must already contain
+`Puzzle/puzzle/student`. The installer copies only a fixed list of platform files;
+it never replaces the whole Puzzle folder or any of your four student C files.
+The add-on contains no replacement implementations.
+
+Avoid dragging the whole new Puzzle folder onto your old one and choosing
+Finder's Replace option, which could remove your other project files. Use the
+supplied installer to merge the required files individually.
 
 After merging, these files should exist in your original assignment folder:
 
