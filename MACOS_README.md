@@ -129,10 +129,19 @@ Do not delete your edited student files or reinstall unrelated X11 packages.
 
 ## Completed reference and submission
 
-This add-on makes the Puzzle project native on a Mac. The supplied completed
-Reference executables remain Windows/Linux versions; they cannot run natively
-on macOS. A Mac Reference executable is not included in this add-on. You can
-complete all three assignment missions in the repaired native Puzzle game.
+There are two separate Mac downloads:
+
+- **[Completed Mac Reference](https://github.com/lijomjose/the-last-portal-assignment/releases/download/v1.5.1/The_Last_Portal_Reference_macOS_v1.5.1.zip):** extract the whole ZIP, open Terminal in its extracted folder, and run `sh play-macos.sh`. No compiler or build is needed. This contains a universal executable and resources, with no completed source. See [the Reference guide](Reference/README_MACOS.md).
+- **[Puzzle Mac add-on](https://github.com/lijomjose/the-last-portal-assignment/releases/download/v1.5.1/The_Last_Portal_macOS_Addon_v1.5.1.zip):** use the installer described above to build your own repaired code. This download does not contain the completed Reference.
+
+If you downloaded the earlier Mac add-on, download it again and reapply it with
+`install-macos-addon.sh`. The corrected scripts select the Mac SDK explicitly,
+check the library architectures correctly, and link the required Apple frameworks.
+Your four edited student C files are preserved.
+
+The old Reference Linux executable cannot run on a Mac by changing `sh` to `bash`.
+Use the native Mac Reference download instead. Both Mac downloads support Intel
+and Apple Silicon; the Reference requires macOS 11 or newer.
 
 Your submission rules, deadline and marks are the ones in the instructor's
 email. This platform fix does not change the assignment or supply its solutions.
@@ -147,6 +156,6 @@ SHA-256 is recorded in `Puzzle/vendor/PROVENANCE.md`.
 [Apple's Command Line Tools instructions](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools)
 and [raylib's macOS guide](https://github.com/raysan5/raylib/wiki/Working-on-macOS)
 describe the native toolchain and frameworks. The bundled archive has both Intel
-and Apple Silicon slices. This update was prepared on Linux; it has not yet been
-run on a physical Mac. An automatic native Mac test workflow could not be
-published because the GitHub account token lacks workflow-write permission.
+and Apple Silicon slices. Native build and runtime verification details are
+recorded in the repository README. Intel support is built into the universal
+Reference executable; Intel runtime testing is separate from Apple Silicon testing.

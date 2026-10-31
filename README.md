@@ -10,6 +10,9 @@ Extract the entire ZIP, then open **START_HERE.txt**. You do not need a GitHub a
 **Mac add-on** from the [release page](https://github.com/lijomjose/the-last-portal-assignment/releases/tag/v1.5.1).
 It adds native Intel/Apple Silicon builds and a bundled Mac library, without
 replacing your four student C files. X11 and Homebrew are not required.
+To play the finished game, download the separate **[Mac Reference ZIP](https://github.com/lijomjose/the-last-portal-assignment/releases/download/v1.5.1/The_Last_Portal_Reference_macOS_v1.5.1.zip)**.
+Extract it and run `sh play-macos.sh` in its folder. No compiler is needed for the Reference.
+If you already downloaded the earlier Puzzle Mac add-on, re-download and apply the corrected version.
 
 ## What you will do
 
@@ -22,7 +25,7 @@ The aim is to gain experience diagnosing a running application and the confidenc
 | Item | Purpose |
 | --- | --- |
 | `Puzzle/` | Editable starter source, build/check/debug scripts, libraries, resources and unfinished executables. This is your assignment. |
-| `Reference/` | Completed Windows x64 and Linux x86-64 executables, resources and launchers. Use it to observe the intended behavior. Completed source code is not included. |
+| `Reference/` | Completed Windows x64, Linux x86-64 and universal Mac executables, resources and launchers. The original full ZIP has Windows/Linux only; the separate Mac Reference ZIP supplies Mac play. Completed source code is not included. |
 | [Assignment_Handout.pdf](Assignment_Handout.pdf) | Full 18-page assignment: game design, all eight repair contracts, build/debug instructions and submission requirements. |
 | [Assignment_Handout.docx](Assignment_Handout.docx) | The same handout in editable Word format. |
 | [START_HERE.txt](START_HERE.txt) | Package orientation and platform instructions. |
@@ -35,6 +38,7 @@ After extracting the full pack:
 
 - **Windows:** open `Reference` and double-click `PLAY_WINDOWS.bat`.
 - **Linux:** open a terminal in `Reference` and run `sh play-linux.sh`.
+- **macOS 11+:** use the Mac Reference ZIP above, or run `sh play-macos.sh` in this repository's `Reference` folder. Both Intel and Apple Silicon are supported.
 
 No compiler is needed to play the reference. Use the matching 64-bit operating system with a graphical desktop and working OpenGL support. Play the three rooms, then work on your own Puzzle copy. A reference playthrough or screenshot does not complete the assignment.
 
@@ -68,7 +72,11 @@ Follow the handout for the required source files, brief explanation and final sc
 The packaged Linux reference passed a full playthrough. The Linux debug launcher was checked for compilation, source line information, paths containing spaces, failure handling and runtime logging. Windows executables are cross-compiled; the Windows builds and launchers have not been run on Windows in the authoring environment.
 
 The Mac add-on bundles the official universal Mac library and uses Apple's
-compiler and native frameworks. A native Mac runtime check has not been performed
-here; see [the Mac guide](MACOS_README.md) for setup and troubleshooting.
+compiler and native frameworks. The normal Puzzle build, debug build and missing-repair
+checker passed on both Apple Silicon and Intel macOS runners. The completed Reference passed
+55,078 game-logic checks and 31,162 diagnostic checks natively and builds as a
+locally signed universal executable. Graphics startup on both hosted CI runners
+was blocked by their unavailable OpenGL pixel format; this is not a completed
+interactive playthrough on student hardware. See [the Mac guide](MACOS_README.md).
 
 The game reuses the instructor's generated Caitlyn course illustrations. raylib and DejaVu license notices are retained in the relevant folders. `SHA256SUMS.txt` lists repository files before editing or playing; each release ZIP has its own checksum. The Mac add-on also includes a separate file manifest.

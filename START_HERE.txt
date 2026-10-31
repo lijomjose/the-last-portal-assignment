@@ -19,6 +19,9 @@ The new section Using your assignment pack explains this package.
 Open Reference. On Windows x64, double-click PLAY_WINDOWS.bat.
 In PowerShell inside Reference: .\PLAY_WINDOWS.bat
 On Linux x86-64, in a terminal inside Reference: sh play-linux.sh
+On macOS 11+ (Intel or Apple Silicon), download the separate completed Mac
+Reference ZIP from the v1.5.1 release, extract it and run sh play-macos.sh
+inside its extracted folder. See MACOS_README.md for the download link.
 No compiler is needed for the reference. Its source code is not included.
 The supplied launchers open the existing binary without rebuilding it.
 Play the three rooms to understand the controls and intended behavior.

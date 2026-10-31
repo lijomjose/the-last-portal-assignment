@@ -7,6 +7,9 @@ there are no completed C source files, headers or build libraries here.
 Windows 10/11 x64: double-click PLAY_WINDOWS.bat in this folder.
 PowerShell in this folder: .\PLAY_WINDOWS.bat
 Linux x86-64: open a terminal in this folder and run: sh play-linux.sh
+macOS 11+ (Intel or Apple Silicon): run sh play-macos.sh or double-click
+PLAY_MACOS.command. The original assignment ZIP requires the separate Mac
+Reference download from the v1.5.1 release. See README_MACOS.md.
 No compiler or rebuild is needed for this Reference edition.
 Keep bin and assets together. Do not run from inside the ZIP.
 A graphical desktop, OpenGL driver and normal system runtime are required.
@@ -28,4 +31,7 @@ The assignment handout and START_HERE.txt are in the outer pack folder.
 
 Validation: the Linux game was tested locally. The Windows executable is
 cross-compiled and has not been run on Windows in this environment.
+The universal Mac build and logic checks passed on native Intel and Apple
+Silicon runners. Graphics could not be checked on those hosted machines:
+their OpenGL pixel format was unavailable. See README_MACOS.md for details.
 Third-party license texts are in LICENSES and assets/DejaVu-LICENSE.txt.
